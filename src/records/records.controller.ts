@@ -12,8 +12,8 @@ export class RecordsController {
 
     @Get('add')
     @Redirect("/records")
-    addRecords(@Query('record') record: string): void {
-        this.recordsService.addRecords(record);
+    addRecords(@Query('record') record: string, @Query('record2') record2: number): void {
+        this.recordsService.addRecords(record, record2);
 
     };
 
