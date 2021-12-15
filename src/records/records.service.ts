@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, Redirect } from '@nestjs/common';
 
 const testArray = ["test1", "test2"];
 
@@ -21,6 +21,7 @@ export class RecordsService implements Plans {
     addRecords(record: string): void {
         testArray.push(record);
         console.log(testArray);
+        Redirect("/records");
     };
 
     updateRecords(): void {
