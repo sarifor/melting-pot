@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 
 const testArray = ["test1", "test2"];
 
-interface Plans { // interface(or 같은 역할을 하는 class)의 이름은 어떻게 정함 ?
+interface Plans {
     showAllRecords(): string[];
     addRecords(): void;
     updateRecords(): void;
@@ -14,10 +14,6 @@ interface Plans { // interface(or 같은 역할을 하는 class)의 이름은 �
 
 @Injectable()
 export class RecordsService implements Plans {
-    getHello(): string {
-        return 'Hello World from records module!';
-    }
-
     showAllRecords(): string[] {
         return testArray;
     };

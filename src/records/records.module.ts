@@ -7,4 +7,4 @@ import { RecordsService } from './records.service';
     controllers: [RecordsController],
     providers: [RecordsService],
 })
-export class RecordsModule {}
+export class RecordsModule {};
