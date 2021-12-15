@@ -4,7 +4,7 @@ const testArray = ["test1", "test2"];
 
 interface Plans {
     showAllRecords(): string[];
-    addRecords(): void;
+    addRecords(record: string): void;
     updateRecords(): void;
     deleteRecords(): void;
     searchForRecords(): string[];
@@ -18,8 +18,9 @@ export class RecordsService implements Plans {
         return testArray;
     };
 
-    addRecords(): void {
-        
+    addRecords(record: string): void {
+        testArray.push(record);
+        console.log(testArray);
     };
 
     updateRecords(): void {
