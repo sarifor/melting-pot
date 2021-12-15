@@ -4,7 +4,7 @@ const testArray = []; // "test1", "test2"라고 미리 적어두면, string[] ty
 
 interface Plans {
     showAllRecords(): string[];
-    addRecords(record: string, record2: number): void;
+    addRecords(record: string[]): void;
     updateRecords(): void;
     deleteRecords(): void;
     searchForRecords(): string[];
@@ -18,8 +18,8 @@ export class RecordsService implements Plans {
         return testArray;
     };
 
-    addRecords(record: string, record2: number): void {
-        testArray.push(record, record2);
+    addRecords(record: string[]): void {
+        testArray.push(record);
         console.log(testArray);
         // Redirect("/records");
     };

@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Redirect, Query } from '@nestjs/common';
+import { Controller, Get, Param, Redirect, Query, Post, Body } from '@nestjs/common';
 import { RecordsService } from './records.service';
 
 @Controller('records')
@@ -10,10 +10,10 @@ export class RecordsController {
         return this.recordsService.showAllRecords();
     };
 
-    @Get('add')
+    @Post('add')
     @Redirect("/records")
-    addRecords(@Query('record') record: string, @Query('record2') record2: number): void {
-        this.recordsService.addRecords(record, record2);
+    addRecords(@Body() record: string[]): void {
+        this.recordsService.addRecords(record);
 
     };
 
