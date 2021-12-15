@@ -1,4 +1,4 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, Redirect } from '@nestjs/common';
 import { RecordsService } from './records.service';
 
 @Controller('records')
@@ -11,6 +11,7 @@ export class RecordsController {
     };
 
     @Get('add/:record')
+    @Redirect("/records")
     addRecords(@Param("record") record: string): void {
         this.recordsService.addRecords(record);
 

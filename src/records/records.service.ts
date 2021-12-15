@@ -21,7 +21,7 @@ export class RecordsService implements Plans {
     addRecords(record: string): void {
         testArray.push(record);
         console.log(testArray);
-        Redirect("/records");
+        // Redirect("/records");
     };
 
     updateRecords(): void {
