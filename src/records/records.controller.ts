@@ -10,7 +10,7 @@ export class RecordsController {
         return this.recordsService.showAllRecords();
     };
 
-    @Get('add')
+    @Get('add/:record')
     addRecords(@Param("record") record: string): void {
         this.recordsService.addRecords(record);
 
