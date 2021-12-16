@@ -3,7 +3,7 @@ import { Record } from './entities/record.entity';
 import { AddRecordDto } from './dto/add-record.dto';
 import { UpdateRecordDto } from './dto/update-record.dto';
 
-const records: Record[] = [];
+let records: Record[] = [];
 
 interface Plans {
     showAllRecords(): Record[];
@@ -35,6 +35,9 @@ export class RecordsService implements Plans {
         console.log(record); // console.log(`Filtered record is ${record}`);의 경우, [object Object] 라고 출력되어, 알맹이를 확인할 수 없음
         console.log(updatedRecord);
 
+        const filteredRecords: Record[] = records.filter(item => item.id != id); // ==의 반대는 !== (X) != (O)
+        records = filteredRecords; // const 변수에는 '재할당( = 변수의 메모리 주소 변경)'이 되지 않아, records 앞에 붙는 키워드를 let으로 변경하여 재할당 가능하게 함
+        
         records.push({ ...record, ...updatedRecord }); // 두 객체의 중복 속성 opinion, keywords, idea의 값은 updatedRecord 것이 적용됨
     };
 
