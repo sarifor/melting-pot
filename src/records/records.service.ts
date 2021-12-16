@@ -31,8 +31,8 @@ export class RecordsService implements Plans {
 
     updateRecords(id: number, updatedRecord: UpdateRecordDto): void {
         // id로 record 특정하고, 수정하고, /records로 redirect
-        const record: Record = records.find(item => item.id === id); // == vs === ?
-        console.log(`Filtered record is ${record}`);
+        const record: Record = records.find(item => item.id == id); // == vs === ?
+        console.log(record); // console.log(`Filtered record is ${record}`);의 경우, [object Object] 라고 출력되어, 알맹이를 확인할 수 없음
         console.log(updatedRecord);
     };
 
