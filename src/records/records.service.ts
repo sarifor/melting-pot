@@ -34,6 +34,10 @@ export class RecordsService implements Plans {
         const record: Record = records.find(item => item.id == id); // 받은 id 타입이 string이라서, ===가 아닌 ==를 사용함 
         console.log(record); // console.log(`Filtered record is ${record}`);의 경우, [object Object] 라고 출력되어, 알맹이를 확인할 수 없음
         console.log(updatedRecord);
+
+        record.opinion = updatedRecord.opinion;
+        record.keywords = updatedRecord.keywords;
+        record.idea = updatedRecord.idea;
     };
 
     /* deleteRecord(): void {
