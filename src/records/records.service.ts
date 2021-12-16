@@ -21,7 +21,10 @@ export class RecordsService implements Plans {
     };
 
     addRecords(record: AddRecordDto): void {
-        records.push(record);
+        records.push({
+            createdDate: new Date(),
+            ...record
+        })
         console.log(records);
         // Redirect("/records");
     };
