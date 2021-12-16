@@ -1,10 +1,12 @@
 import { Injectable, Redirect } from '@nestjs/common';
+import { AllRecordsEntities } from './dto/AllRecordsEntities';
+import { AddRecordDto } from './dto/AddRecordDto';
 
 const testArray = []; // "test1", "test2"라고 미리 적어두면, string[] type이 되어버림
 
 interface Plans {
-    showAllRecords(): string[];
-    addRecords(record: string[]): void;
+    showAllRecords(): AllRecordsEntities[];
+    addRecords(record: AddRecordDto): void;
     updateRecords(): void;
     deleteRecords(): void;
     searchForRecords(): string[];
@@ -14,11 +16,11 @@ interface Plans {
 
 @Injectable()
 export class RecordsService implements Plans {
-    showAllRecords(): string[] {
+    showAllRecords(): AllRecordsEntities[] {
         return testArray;
     };
 
-    addRecords(record: string[]): void {
+    addRecords(record: AddRecordDto): void {
         testArray.push(record);
         console.log(testArray);
         // Redirect("/records");
