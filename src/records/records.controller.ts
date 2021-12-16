@@ -1,14 +1,14 @@
 import { Controller, Get, Param, Redirect, Query, Post, Body } from '@nestjs/common';
 import { RecordsService } from './records.service';
-import { AllRecordsEntities } from './dto/AllRecordsEntities';
-import { AddRecordDto } from './dto/AddRecordDto';
+import { Record } from './entities/record.entity';
+import { AddRecordDto } from './dto/add-record.dto';
 
 @Controller('records')
 export class RecordsController {
     constructor(private readonly recordsService: RecordsService) {};
 
     @Get()
-    showAllRecords(): AllRecordsEntities[] {
+    showAllRecords(): Record[] {
         return this.recordsService.showAllRecords();
     };
 

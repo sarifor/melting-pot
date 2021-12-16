@@ -1,4 +1,4 @@
-export class AllRecordsEntities {
+export class Record {
     title: string;
     author: string[];
     category: string;
