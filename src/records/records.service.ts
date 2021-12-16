@@ -1,13 +1,14 @@
 import { Injectable, Redirect } from '@nestjs/common';
 import { Record } from './entities/record.entity';
 import { AddRecordDto } from './dto/add-record.dto';
+import { UpdateRecordDto } from './dto/update-record.dto';
 
 const records: Record[] = [];
 
 interface Plans {
     showAllRecords(): Record[];
     addRecords(record: AddRecordDto): void;
-    updateRecords(): void;
+    updateRecords(id: number, updatedRecord: UpdateRecordDto): void;
     /* deleteRecords(): void;
     searchForRecords(): string[];
     showRelatedNews(): string[];
@@ -28,8 +29,11 @@ export class RecordsService implements Plans {
         });
     };
 
-    updateRecords(): void {
-        
+    updateRecords(id: number, updatedRecord: UpdateRecordDto): void {
+        // id로 record 특정하고, 수정하고, /records로 redirect
+        const record = records.filter(id);
+        console.log(`Filtered record is ${record}`);
+        console.log(updatedRecord);
     };
 
     /* deleteRecords(): void {
