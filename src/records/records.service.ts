@@ -31,7 +31,7 @@ export class RecordsService implements Plans {
 
     updateRecords(id: number, updatedRecord: UpdateRecordDto): void {
         // id로 record 특정하고, 수정하고, /records로 redirect
-        const record = records.filter(id);
+        const record: Record = records.find(item => item.id === id); // == vs === ?
         console.log(`Filtered record is ${record}`);
         console.log(updatedRecord);
     };
