@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Redirect, Query, Post, Body } from '@nestjs/common';
+import { Controller, Get, Param, Redirect, Post, Body } from '@nestjs/common';
 import { RecordsService } from './records.service';
 import { Record } from './entities/record.entity';
 import { AddRecordDto } from './dto/add-record.dto';
@@ -15,14 +15,13 @@ export class RecordsController {
 
     @Post('add')
     @Redirect("/records")
-    addRecords(@Body() record: AddRecordDto): void {
-        this.recordsService.addRecords(record);
+    addRecord(@Body() record: AddRecordDto): void {
+        this.recordsService.addRecord(record);
     };
 
     @Post('update/:id')
     @Redirect("/records")
-    UpdateRecords(@Param('id') id: number, @Body() updatedRecord: UpdateRecordDto): void {
-        this.recordsService.updateRecords(id, updatedRecord);
-    };    
-
+    UpdateRecord(@Param('id') id: number, @Body() updatedRecord: UpdateRecordDto): void {
+        this.recordsService.updateRecord(id, updatedRecord);
+    };
 };
