@@ -7,4 +7,5 @@ export class Record {
     keywords: string[];
     news: string[];
     idea: string[];
+    createdDate: Date;
 };
