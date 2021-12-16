@@ -9,8 +9,8 @@ interface Plans {
     showAllRecords(): Record[];
     addRecord(record: AddRecordDto): void;
     updateRecord(id: number, updatedRecord: UpdateRecordDto): void;
-    /* deleteRecord(): void;
-    searchForRecords(): string[];
+    deleteRecord(id: number): void;
+    /* searchForRecords(): string[];
     showRelatedNews(): string[];
     showMixedRecords(): string[]; */
 };
@@ -38,11 +38,12 @@ export class RecordsService implements Plans {
         records.push({ ...record, ...updatedRecord }); // 두 객체의 중복 속성 opinion, keywords, idea의 값은 updatedRecord 것이 적용됨
     };
 
-    /* deleteRecord(): void {
-        
+    deleteRecord(id: number): void {
+        const filteredRecords: Record[] = records.filter(item => item.id != id);
+        records = filteredRecords;
     };
 
-    searchForRecords(): string[] {
+    /* searchForRecords(): string[] {
         return testArray;
     };
 

@@ -24,4 +24,10 @@ export class RecordsController {
     UpdateRecord(@Param('id') id: number, @Body() updatedRecord: UpdateRecordDto): void {
         this.recordsService.updateRecord(id, updatedRecord);
     };
+
+    @Get('delete/:id')
+    @Redirect('/records')
+    DeleteRecord(@Param('id') id: number): void {
+        this.recordsService.deleteRecord(id);
+    };
 };
