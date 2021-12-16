@@ -35,9 +35,7 @@ export class RecordsService implements Plans {
         console.log(record); // console.log(`Filtered record is ${record}`);의 경우, [object Object] 라고 출력되어, 알맹이를 확인할 수 없음
         console.log(updatedRecord);
 
-        record.opinion = updatedRecord.opinion;
-        record.keywords = updatedRecord.keywords;
-        record.idea = updatedRecord.idea;
+        records.push({ ...record, ...updatedRecord }); // 두 객체의 중복 속성 opinion, keywords, idea의 값은 updatedRecord 것이 적용됨
     };
 
     /* deleteRecord(): void {
