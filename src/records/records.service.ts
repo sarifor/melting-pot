@@ -22,6 +22,7 @@ export class RecordsService implements Plans {
 
     addRecords(record: AddRecordDto): void {
         records.push({
+            id: records.length + 1,
             createdDate: new Date(),
             ...record
         });
