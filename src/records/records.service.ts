@@ -2,7 +2,7 @@ import { Injectable, Redirect } from '@nestjs/common';
 import { Record } from './entities/record.entity';
 import { AddRecordDto } from './dto/add-record.dto';
 
-const records: Record[] = []; // "test1", "test2"라고 미리 적어두면, string[] type이 되어버림
+const records: Record[] = [];
 
 interface Plans {
     showAllRecords(): Record[];
@@ -24,9 +24,7 @@ export class RecordsService implements Plans {
         records.push({
             createdDate: new Date(),
             ...record
-        })
-        console.log(records);
-        // Redirect("/records");
+        });
     };
 
     updateRecords(): void {

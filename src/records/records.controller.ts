@@ -16,7 +16,5 @@ export class RecordsController {
     @Redirect("/records")
     addRecords(@Body() record: AddRecordDto): void {
         this.recordsService.addRecords(record);
-
     };
-
 };
